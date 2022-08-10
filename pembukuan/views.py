@@ -68,8 +68,7 @@ def detail_umkm(request):
 
 @login_required(login_url = '/authentication/login')
 def ubah_detail(request):
-    dynamic_name = ''
-    details = Details.objects.get(name=dynamic_name)
+    details = Details.objects.filter().first()
     context = {
         'details': details,
     }
@@ -107,7 +106,6 @@ def ubah_detail(request):
         if not city:
             field = "-"
 
-        dynamic_name = name
         details.name = name
         details.pemilik = pemilik
         details.email = email

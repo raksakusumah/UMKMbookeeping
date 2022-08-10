@@ -5,6 +5,15 @@ from django.utils.timezone import now
 from phone_field import PhoneField
 
 # Create your models here.
+class Details(models.Model):
+    name = models.CharField(max_length=255)
+    pemilik = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    phone = PhoneField(blank=True)
+    field = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
+
 class Pembukuan(models.Model):
     price = models.FloatField()
     tax = models.FloatField(blank=True, null=True)
@@ -23,12 +32,3 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = 'Categories'
-
-class Details(models.Model):
-    name = models.CharField(max_length=255)
-    pemilik = models.CharField(max_length=255)
-    email = models.CharField(max_length=255)
-    phone = PhoneField(blank=True)
-    field = models.CharField(max_length=255)
-    address = models.CharField(max_length=255)
-    city = models.CharField(max_length=255)
